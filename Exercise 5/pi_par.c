@@ -5,7 +5,7 @@ static long num_steps = 100000;
 double step;
 
 int main() {
-    int i;
+    
     double pi, total_sum = 0.0;
     double start, end;
 
@@ -23,7 +23,8 @@ int main() {
         long start_i = tid * chunk;
         long end_i = (tid == threads - 1) ? num_steps : start_i + chunk;
 
-        for (i = start_i; i < end_i; i++) {
+       for (int i = start_i; i < end_i; i++)
+ {
             double x = (i + 0.5) * step;
             local_sum += 4.0 / (1.0 + x * x);
         }
